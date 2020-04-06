@@ -1,0 +1,30 @@
+sca:
+  routes:
+    - '{
+      "id": "taobao",
+      "uri": "https://www.taobao.com1",
+      "filters": [],
+      "predicates": [
+      {
+        "name": "Path",
+        "args": {
+          "pattern": "/taobao3"
+        }
+      }
+      ],
+      "order": 0
+    }'
+    - '{
+      "id": "baidu",
+      "uri": "https://www.baidu.com1",
+      "filters": [],
+      "predicates": [
+      {
+        "name": "Path",
+        "args": {
+          "pattern": "/baidu2"
+        }
+      }
+      ],
+      "order": 0
+    }'

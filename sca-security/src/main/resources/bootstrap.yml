@@ -1,0 +1,80 @@
+spring:
+  appliction:
+    name: sca-security-service
+  profiles:
+    active: @spring.active@
+
+management:
+  endpoint:
+    conditions:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+
+---
+
+server:
+  port: 10021
+
+spring:
+  profiles: local
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3006
+    username: root
+    password: 1
+    initialSize: 5
+    minldle: 5
+    maxActive: 50
+    naxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    timeBetweenConnectErrorMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1
+    validationQueryTimeout: 3
+    testWhileIdle: true
+    testOnBorrow: true
+    testOnReturn: false
+    defaultAutoCommit: true
+    keepAlive: true
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+
+mybatis-plus:
+  mapper-locations: classpath*:/com.sca.mapper/*.xml
+#  typeEnumsPackage: com.sca*.enums
+  typeAliasesPackage: com.sca.entity
+  global-config:
+    db-config:
+      id-type: AUTO
+      field-strategy: NOT_NULL
+      column-underline: true
+      logic-delete-value: -1
+      logic-not-delete-value: 0
+      banner: false
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    call-setters-on-nulls: true
+    jdbc-type-for-null: null
+
+---
+
+spring:
+  profiles: dev
+
+
+
+
+
+
+
+
+
+
+
+

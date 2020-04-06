@@ -1,0 +1,23 @@
+#spring:
+#  profiles:
+#    active: dev
+#
+#
+#---
+#spring:
+#  profiles: dev
+
+
+app:
+  id: sca-gw
+apollo:
+  bootstrap:
+    namespaces: sca-gw.yml,sca-routes.yml
+    enabled: true
+    eagerLoad:
+      enabled: true
+  meta: http://localhost:8080
+
+
+
+
